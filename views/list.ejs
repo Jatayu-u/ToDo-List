@@ -1,0 +1,41 @@
+<%- include("header") -%>
+
+<div class="container">
+  <div class="box" id="heading">
+    <h1 class = "animate"> <%= listTitle %> </h1>
+  </div>
+
+  <div class="box">
+
+
+  <%  newListItems.forEach(function(item){ %>
+
+    <form action="/delete" method="post">
+      <div class="item">
+        <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+        <p class = "animate"><%=item.name%></p>
+      </div>
+      <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+    </form>
+  <%  }) %>
+
+
+      <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value="<%= listTitle %>">+</button>
+      
+      </form>
+  </div>
+  
+</div>
+  <div class="bubbles">
+    <img src="images/bubble.png">
+    <img src="images/bubble.png">
+    <img src="images/bubble.png">
+    <img src="images/bubble.png">
+    <img src="images/bubble.png">
+    <img src="images/bubble.png">
+    <img src="images/bubble.png">
+  </div>
+
+<%- include("footer") -%>
